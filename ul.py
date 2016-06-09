@@ -33,7 +33,7 @@ get_time = re.compile('\d{2}[:]\d{2}')
 
 print ('---Buss information---')
 print ('Från Akademiska sjukhuset södra til Uppsala C')
-print ('Beräkningar från ' + datetime.datetime.now().strftime('%Y-%m-%d  %H:%M'))
+print ('Beräkningar från ' + datetime.datetime.now(pytz.timezone('Europe/Stockholm')).strftime('%Y-%m-%d  %H:%M'))
 print ('----------------------')
 print ('\n')
 count=0

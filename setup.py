@@ -6,7 +6,7 @@ with open("README.md", "r") as readme_file:
 requirements = ["requests>=2"]
 
 setup(
-    name="",
+    name="ul_api_client",
     version="0.1.0",
     author="Adddrian",
     author_email="addegor95@gmailcom",

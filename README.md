@@ -6,6 +6,7 @@ Unofficial python client for travel information regarding [UL](https://ul.se).
 
 For public transport around Uppsala.
 
+[Notebook demo](https://colab.research.google.com/drive/115t8wyyuqVaT1R2dfN1xIFsAgspSls8S?usp=sharing)
 
 # Installation
 

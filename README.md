@@ -11,15 +11,16 @@ For public transport around Uppsala.
 # Installation
 
 ```python
-pip3 install git+https://github.com/Adddrian/ul-api-python-client#egg=ul_api_client
+pip3 install git+https://github.com/Adddrian/ul-api-python-client#egg=ul_sdk
 
 ```
 
 # Usage
 
 ### import lib
+
 ```python
-from ul_api_client import UlClient
+from ul_sdk import ul
 
 ```
 

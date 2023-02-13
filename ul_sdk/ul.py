@@ -2,15 +2,14 @@ import requests
 import json
 
 
-
+_base_url = "https://www.ul.se/api/journey"
 
 def all_stops():
-    url = "https://www.ul.se/api/journey/allstops"
+    url = _base_url + "/allstops"
     return requests.request("GET", url).json()
 
-
 def stop_search(search_query):
-    search_result_json = requests.get("https://www.ul.se/api/journey/stops?query=" + search_query).json()
+    search_result_json = requests.get(_base_url + "/stops?query=" + search_query).json()
     search_result_df_raw = []
     for row in search_result_json:
         search_result_df_raw.append(flatten_json(row))
@@ -18,12 +17,12 @@ def stop_search(search_query):
 
 
 def journey_search(from_point_id, from_point_type, to_point_id, to_point_type, max_walk_distance=3000):
-    journey_search_reply = json.loads(requests.get("https://www.ul.se/api/journey/search?changeTimeType=0&dateTime=&fromPointId=" + str(from_point_id) + "&fromPointType=" + str(from_point_type) + "&maxWalkDistance=" + str(max_walk_distance) + "&priorityType=0&toPointId=" + str(to_point_id) + "&toPointType=" + str(to_point_type) + "&trafficTypes=1,2,3,4,5,6,7,8,9,10,11&travelWhenType=2&via=&viaPointId=&walkSpeedType=0").json()['Payload'])[0]
+    journey_search_reply = json.loads(requests.get(_base_url +"/search?changeTimeType=0&dateTime=&fromPointId=" + str(from_point_id) + "&fromPointType=" + str(from_point_type) + "&maxWalkDistance=" + str(max_walk_distance) + "&priorityType=0&toPointId=" + str(to_point_id) + "&toPointType=" + str(to_point_type) + "&trafficTypes=1,2,3,4,5,6,7,8,9,10,11&travelWhenType=2&via=&viaPointId=&walkSpeedType=0").json()['Payload'])[0]
     return journey_search_reply
 
 
 def journey_parts(route_link_key):
-    return requests.get("https://www.ul.se/api/journey/parts/?journeyKey=" + route_link_key).json()
+    return requests.get(_base_url + "/parts/?journeyKey=" + route_link_key).json()
 
 
 
